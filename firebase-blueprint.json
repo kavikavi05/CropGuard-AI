@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "Scan": {
+      "title": "Scan",
+      "description": "A crop disease scan record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The UID of the user who performed the scan" },
+        "disease": { "type": "string", "description": "The identified disease" },
+        "severity": { "type": "string", "enum": ["Low", "Medium", "High"], "description": "The severity level of the disease" },
+        "confidence": { "type": "string", "description": "Confidence level" },
+        "solution": { "type": "string", "description": "Suggested treatment" },
+        "details": { "type": "string", "description": "Detailed analysis" },
+        "imageUrl": { "type": "string", "description": "Base64 or URL of the scanned image" },
+        "isFavorite": { "type": "boolean", "description": "Whether the scan is marked as favorite" },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "box_2d": { "type": "array", "items": { "type": "number" } },
+              "label": { "type": "string" }
+            }
+          }
+        },
+        "createdAt": { "type": "object", "description": "Timestamp of the scan" }
+      },
+      "required": ["userId", "disease", "severity", "confidence", "solution", "details", "imageUrl", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/scans/{scanId}": {
+      "schema": "Scan",
+      "description": "Collection of crop disease scans"
+    }
+  }
+}

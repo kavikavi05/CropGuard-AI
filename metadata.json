@@ -1,0 +1,8 @@
+{
+  "name": "CropGuard AI Pro",
+  "description": "Advanced crop disease detection with real-time scanning, multi-disease analysis, AI chatbot, and voice explanations.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
